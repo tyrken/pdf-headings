@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "pdf-headings"
+version = "0.0.1"
+description = "Grabs PDFs"
+authors = ["Tristan Keen <tristan.keen@gmail.com>"]
+
+#[[tool.poetry.source]]
+#name = "devpi"
+#url = "https://packages.lystit.com/lyst/dev/+simple"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pymupdf = "*"
+requests = "*"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "*"
+mypy = "*"
+
+[tool.poetry.scripts]
+grab = "main:main"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+# https://beta.ruff.rs/docs/rules/
+select = ['E', 'W', 'F', 'I', 'B', 'C4', 'ARG', 'SIM']
+
+[tool.ruff.mccabe]
+max-complexity = 15

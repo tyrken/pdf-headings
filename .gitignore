@@ -1,0 +1,16 @@
+*.egg-info
+*.sublime-workspace
+*~
+\#*#
+coverage.xml
+*htmlcov
+/static/
+*site/
+.venv/
+
+.python-version
+
+dist/
+/*.json
+.envrc.local
+/*.yaml
