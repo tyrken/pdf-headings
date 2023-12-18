@@ -27,14 +27,13 @@ update: ## Force poetry update
 	poetry install
 	echo 'done' > $(VENV_DIR)/poetry.done
 
-format: $(VENV_DIR) ## Check formatting
-	ruff format src/ tests/
-	ruff check src/ tests/ --fix
+lint: $(VENV_DIR) ## Run lint via poetry
+	poetry run ruff check --output-format text .
+	poetry run ruff format --check .
 
-lint: $(VENV_DIR) ## Check lint
-	bin/lint-ruff
-	# Re-enable later
-	# bin/lint-mypy
+format: $(VENV_DIR) ## Reformat and fix simple errors
+	poetry run ruff format main.py
+	poetry run ruff check main.py --fix
 
 test: $(VENV_DIR) ## Run tests
 	pytest -vv $(PYTEST_OPTS)

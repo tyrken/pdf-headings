@@ -31,4 +31,4 @@ line-length = 100
 select = ['E', 'W', 'F', 'I', 'B', 'C4', 'ARG', 'SIM']
 
 [tool.ruff.mccabe]
-max-complexity = 15
+max-complexity = 10
